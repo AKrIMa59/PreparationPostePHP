@@ -98,7 +98,7 @@ function fileCreationProcedure($file)
 
     fwrite($file, "##############################################\r\n");
     fwrite($file, "Etape " . $GLOBALS['stepNumberTXT'] . " : Paramétrage Active Directory et SSO\r\n");
-    fwrite($file, 'Ajouter le poste dans le groupe "GROUPE_PC_'. $GLOBALS['typeUtilisation'] . '"' . "\r\n");
+    fwrite($file, 'Ajouter le poste dans le groupe "XXXXXX'. $GLOBALS['typeUtilisation'] . '"' . "\r\n");
     fwrite($file, "Installation du SSO " . $GLOBALS['typeUtilisation'] ."\r\n");
     $GLOBALS['stepNumberTXT']++;
 
@@ -120,7 +120,7 @@ function fileCreationProcedure($file)
     if($GLOBALS['typePoste'] == "Portable") {
         fwrite($file, "##############################################\r\n");
         fwrite($file, "Etape " . $GLOBALS['stepNumberTXT'] . " : Paramétrage du Wifi\r\n");
-        fwrite($file, "Paramétrage du Wifi chseclin_g/chseclin\r\n");
+        fwrite($file, "Paramétrage du Wifi XXXXXX\r\n");
         $GLOBALS['stepNumberTXT']++;
     }
 
@@ -130,7 +130,7 @@ function fileCreationProcedure($file)
         fwrite($file, "Paramétrage de l'imprimante sur Convergence\r\n");
         fwrite($file, "Ajout du nom du poste dans STATION\r\n");
         if ($GLOBALS['typeUtilisation'] == "FUS") {
-            fwrite($file, "Creation du fichier de config imprimante dans NETLOGON\r\n");
+            fwrite($file, "Creation du fichier de config imprimante dans XXXXXX\r\n");
             fwrite($file, "Raccourci Convergence avec le serveur du service \"" . $GLOBALS['service'] . "\"\r\n");
         }
         $GLOBALS['stepNumberTXT']++;
@@ -153,10 +153,10 @@ function fileCreationProcedure($file)
     if($GLOBALS['procdeg'] == "oui") {
         fwrite($file, "##############################################\r\n");
         fwrite($file, "Etape " . $GLOBALS['stepNumberTXT'] . " : Procédure dégradé\r\n");
-        fwrite($file, "Création du compte local degrad/degrad\r\n");
+        fwrite($file, "Création du compte local XXXXXX\r\n");
         fwrite($file, "Ajout de l'imprimante en connexion USB\r\n");
-        fwrite($file, "Création du Dossier ProceduresDegradees à la racine de C:\r\n");
-        fwrite($file, "Création du raccourci vers le dossier ProceduresDegradees sur le bureau\r\n");
+        fwrite($file, "Création du Dossier XXXXXX à la racine de C:\r\n");
+        fwrite($file, "Création du raccourci vers le dossier XXXXXX sur le bureau\r\n");
         $GLOBALS['stepNumberTXT']++;
     }
 }
@@ -291,22 +291,22 @@ if (!empty($logiciel)) {
                 $convergencePresence = true;
                 break;
             case 'MEVA':
-                $pdf->stepTextWithCheckbox("MEVA = TRUE");
+                $pdf->stepTextWithCheckbox("XXXXXX = XXXXXX");
                 break;
             case 'speechTranscribe':
-                $pdf->stepTextWithCheckbox("SPEECH = TRANS");
+                $pdf->stepTextWithCheckbox("XXXXXX = XXXXXX");
                 break;
             case 'speechDictate':
-                $pdf->stepTextWithCheckbox("SPEECH = DICT");
+                $pdf->stepTextWithCheckbox("XXXXXX = XXXXXX");
                 break;
             case 'dictDicteur':
-                $pdf->stepTextWithCheckbox("DICT = DICT");
+                $pdf->stepTextWithCheckbox("XXXXXX = XXXXXX");
                 break;
             case 'dictTranscripteur':
-                $pdf->stepTextWithCheckbox("DICT = TRANS");
+                $pdf->stepTextWithCheckbox("XXXXXX = XXXXXX");
                 break;
             case 'WINREST':
-                $pdf->stepTextWithCheckbox("WINREST = GDC ou GPA ou ALL");
+                $pdf->stepTextWithCheckbox("XXXXXX = XXXXXX");
                 break;
             default:
                 $pdf->stepText("Logiciel par défaut non reconnu");
@@ -336,7 +336,7 @@ $stepNumber++;
 
 if ($typePoste == "Portable") {
     $pdf->stepTitleH1("Etape " . $stepNumber . " : Paramétrage du Wifi", 10,$pdf->getPDF_Y()+5);
-    $pdf->stepTextWithCheckbox("Paramétrage du Wifi chseclin_g/chseclin", 120);
+    $pdf->stepTextWithCheckbox("Paramétrage du Wifi XXXXXX", 120);
     $stepNumber++;
 }
 
@@ -345,7 +345,7 @@ if ($convergencePresence == true || $typeUtilisation == "FUS") {
     $pdf->stepTextWithCheckbox("Paramétrage de l'imprimante sur Convergence", 130);
     $pdf->stepTextWithCheckbox("Ajout du nom du poste dans STATION", 130);
     if ($typeUtilisation == "FUS") {
-        $pdf->stepTextWithCheckbox("Creation du fichier de config imprimante dans NETLOGON", 130);
+        $pdf->stepTextWithCheckbox("Creation du fichier de config imprimante dans XXXXXX", 130);
         $pdf->stepTextWithCheckbox("Raccourci Convergence avec le serveur du service \"" . $service . "\"", 130);
     }
     $stepNumber++;
@@ -359,8 +359,8 @@ if ($typePoste == "Portable" && $typeUtilisation == "FUS") {
 
 if ($accesVPN == "oui") {
     $pdf->stepTitleH1("Etape " . $stepNumber . " : Paramètrage pour accès VPN", 10,$pdf->getPDF_Y()+5);
-    $pdf->stepTextWithCheckbox("Conserver adresse IP ancien poste", 120);
-    $pdf->stepTextWithCheckbox("Ajouter utilisateur dans le groupe local \"Utilisateurs du Bureau à distance\" ", 120);
+    $pdf->stepTextWithCheckbox("XXXXXX", 120);
+    $pdf->stepTextWithCheckbox("XXXXXX", 120);
     $stepNumber++;
 }
 
@@ -372,10 +372,10 @@ if ($recuperationDonnee == "oui") {
 
 if ($procdeg == "oui") {
     $pdf->stepTitleH1("Etape " . $stepNumber . " : Procédure dégradée", 10,$pdf->getPDF_Y()+5);
-    $pdf->stepTextWithCheckbox("Création du compte local degrad/degrad", 120);
+    $pdf->stepTextWithCheckbox("Création du compte local XXXXXX", 120);
     $pdf->stepTextWithCheckbox("Ajout de l'imprimante en connexion USB", 120);
-    $pdf->stepTextWithCheckbox("Création du Dossier ProceduresDegradees à la racine de C:", 120);
-    $pdf->stepTextWithCheckbox("Création du raccourci \"Procédure dégradée\" sur le bureau", 120);
+    $pdf->stepTextWithCheckbox("Création du Dossier XXXXXX à la racine de C:", 120);
+    $pdf->stepTextWithCheckbox("Création du raccourci XXXXXX sur le bureau", 120);
     $stepNumber++;
 }
 
